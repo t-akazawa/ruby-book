@@ -1,29 +1,28 @@
-module Regex_checker
+module RegexChecker
   def self.call
     print 'Text?: '
-    @text = self.receive_text
+    @text = receive_text
     @count ||= 100
-    self.regexp_check
+    regexp_check
   end
 
   def self.setcount=(cnt)
     @count = cnt
   end
 
-  private
   def self.receive_text
     gets.chomp
   end
 
   class << self
-    alias_method :receive_pattern, :receive_text
+    alias receive_pattern receive_text
   end
 
   def self.regexp_check
     count = 0
     begin
       print 'Pattern?: '
-      @pattern = self.receive_pattern
+      @pattern = receive_pattern
       matched = @text.scan(/#{@pattern}/)
       if matched.empty?
         'Nothing matched.'
@@ -43,5 +42,5 @@ module Regex_checker
   end
 end
 
-#Regex_checker.setcount = 2
-#Regex_checker.call
+# RegexChecker.setcount = 2
+# RegexChecker.call

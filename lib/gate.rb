@@ -3,15 +3,11 @@ class Ticket
     @balance = payment
   end
 
-  #FIXME: use attr_reader
-
   def enter(name)
     @enter = name
   end
 
-  def balance
-    @balance
-  end
+  attr_reader :balance
 
   def enter_station
     @enter
@@ -30,7 +26,7 @@ class Gate
   def exit(ticket)
     h = {
       umeda: { umeda: 0, juzo: 150, mikuni: 190 },
-      juzo: { juzo: 0, mikuni: 150 },
+      juzo: { juzo: 0, mikuni: 150 }
     }
     fare = h[ticket.enter_station][@name]
     ticket.balance - fare >= 0
