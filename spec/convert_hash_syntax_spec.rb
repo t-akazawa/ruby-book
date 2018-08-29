@@ -15,9 +15,9 @@ RSpec.describe 'Convert hash syntax' do
 
       OLD_HASH = <<~TEXT
       {
-        :name => 'Alice',
+          :name => 'Alice',
         :age=>20,
-        :gender  =>  :female,
+         :gender  =>  :female,
       }
       TEXT
       expect(convert_hash_syntax(OLD_HASH)).to eq EXPECTED_HASH
